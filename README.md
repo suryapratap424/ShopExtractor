@@ -12,3 +12,5 @@
     we can set low and up limit as per requirement for requesting all shops (low = 0 ; up = list.length)
     to run - 'node ./oneshop.js'
     it reads list.js file , requests to all specified url's makes array and appends in 'details.json'
+# Csvshop js
+    Similar to oneshop.js returns csv(details.csv) file insted of json

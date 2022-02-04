@@ -15,7 +15,7 @@ axios(url)
     let pages = Math.ceil(no / 20);
     console.log(`Pages - ${pages} \nTotal ${no} Shops Found`)
     let mainarr = []
-    for (let i = 1; i <= 3; i++) {// pages can be changed
+    for (let i = 1; i <= 2; i++) {// pages can be changed
         const shops = []
       let x = await axios(`${url}?&pageno=${i}`).then(response => {
           const html = response.data
@@ -36,9 +36,9 @@ axios(url)
         .catch(err => console.log(err))
         // console.log(x)
         mainarr = [...mainarr, ...x];
+        fs.writeFileSync('./list.json',JSON.stringify(mainarr))
     }
     // console.log(mainarr)
-    fs.writeFileSync('./list.json',JSON.stringify(mainarr))
     console.log('-------DONE------')
 }).catch(e=>console.log(e.response.data))
 app.listen(80, () => console.log("running"));
